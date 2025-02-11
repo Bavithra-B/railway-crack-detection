@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Status</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        if (!localStorage.getItem("authToken")) {
+            window.location.href = "login.html";
+        }
+    </script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="tracking-container">
+        <h1>Track Status</h1>
+        <button onclick="fetchLiveTrackCondition()">Get Live Track Condition</button>
+        <pre id="track-condition"></pre>
+    </div>
+</body>
+</html>
