@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Crack Detection Tracking</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('images/train01.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            text-shadow: 1px 1px 3px #000;
+        }
+
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="password"], input[type="tel"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login Page</h2>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <input type="tel" id="mobile" placeholder="Mobile Number" required>
+        <button onclick="login()">Login</button>
+        <p>Don't have an account? <a href="register.html" style="color: #28a745;">Register here</a></p>
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const mobile = document.getElementById('mobile').value;
+
+            // Assuming the data is stored in localStorage in the format: username, password, mobile
+            const storedUser = JSON.parse(localStorage.getItem(username));  // Getting stored user data (username, password, mobile)
+
+            if (username && password && mobile) {
+                if (storedUser && storedUser.password === password && storedUser.mobile === mobile) {
+                    alert('Login successful!');
+                    window.location.href = 'tracking.html';
+                } else {
+                    alert('Invalid username, password, or mobile number. Please try again.');
+                }
+            } else {
+                alert('Please enter all fields (Username, Password, Mobile Number).');
+            }
+        }
+    </script>
+</body>
+</html>

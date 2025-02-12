@@ -1,0 +1,82 @@
+<!-- tracking.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crack Detection Tracking</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('images/train01.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            height: 100vh;
+        }
+
+        .tracking-container {
+            max-width: 800px;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .buttons-container button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .buttons-container button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tracking-container">
+        <h2>Crack Detection Tracking in Train</h2>
+        <div class="buttons-container">
+            <button onclick="alert('Live Track Condition')">Live Track Condition</button>
+            <button onclick="alert('Previous Track Condition')">Previous Track Condition</button>
+            <button onclick="alert('Malfunction')">Malfunction</button>
+            <button onclick="alert('Problems Listed')">Problems Listed</button>
+        </div>
+        <p>
+             This system helps in monitoring the railway track conditions to ensure
+            the safety and reliability of train operations. The data is collected in real-time to detect cracks,
+            malfunctions, and other potential issues.
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Crack Detection Tracking</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('images/train01.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        .welcome-container {
+            max-width: 800px;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        p, ul {
+            font-size: 18px;
+            line-height: 1.6;
+            font-weight: bold;
+        }
+
+        ul {
+            padding-left: 20px;
+            list-style-position: inside;
+        }
+
+        button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px auto 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <h1>Welcome to Crack Detection Tracking System</h1>
+        <p>
+            Crack Detection Tracking in trains helps in identifying cracks and malfunctions on railway tracks,
+            ensuring the safety and efficiency of rail operations. This system uses advanced technology
+            to detect issues in real-time, allowing timely maintenance and reducing the risk of accidents.
+        </p>
+        <p><strong>Advantages:</strong></p>
+        <ul>
+            <li>Improved safety for trains and passengers.</li>
+            <li>Real-time monitoring of track conditions.</li>
+            <li>Efficient maintenance planning.</li>
+            <li>Cost reduction in long-term infrastructure management.</li>
+        </ul>
+        <button onclick="goToLogin()">LOGIN PLEASE</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function goToLogin() {
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>

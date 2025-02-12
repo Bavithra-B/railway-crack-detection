@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Crack Detection Tracking</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('images/train01.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            text-shadow: 1px 1px 3px #000;
+        }
+
+        .register-container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="password"], input[type="tel"], input[type="text"].otp {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container" id="register-container">
+        <h2>Register</h2>
+        <input type="text" id="new-username" placeholder="Enter Username" required>
+        <input type="password" id="new-password" placeholder="Enter Password" required>
+        <input type="tel" id="new-mobile" placeholder="Enter Mobile Number" required>
+        <button onclick="register()">Register</button>
+        <p>Already have an account? <a href="login.html" style="color: #28a745;">Login here</a></p>
+    </div>
+
+    <div class="register-container" id="otp-container" style="display:none;">
+        <h2>OTP Verification</h2>
+        <input type="text" class="otp" id="otp-input" placeholder="Enter OTP" required>
+        <button onclick="verifyOTP()">Verify OTP</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function register() {
+            const newUsername = document.getElementById('new-username').value;
+            const newPassword = document.getElementById('new-password').value;
+            const newMobile = document.getElementById('new-mobile').value;
+
+            // Check if username, password, and mobile number are provided
+            if (newUsername && newPassword && newMobile) {
+                // Create a user object to store username, password, and mobile number
+                const user = {
+                    password: newPassword,
+                    mobile: newMobile
+                };
+
+                // Store user object in localStorage (for simplicity, as an example)
+                localStorage.setItem(newUsername, JSON.stringify(user));
+
+                // Generate OTP
+                const otp = generateOTP();
+
+                // Send OTP to mobile number (simulate sending an OTP)
+                sendOTPToMobile(newMobile, otp);
+
+                // Show OTP verification container
+                document.getElementById('register-container').style.display = 'none';
+                document.getElementById('otp-container').style.display = 'block';
+
+                // Store OTP for verification later
+                localStorage.setItem('otp', otp);
+
+                alert('Registration successful! OTP sent to your mobile.');
+            } else {
+                alert('Please fill in all fields (Username, Password, Mobile Number).');
+            }
+        }
+
+        function generateOTP() {
+            return Math.floor(100000 + Math.random() * 900000); // Random 6-digit OTP
+        }
+
+        function sendOTPToMobile(mobile, otp) {
+            // Here, you can integrate with an SMS API like Twilio or Nexmo to send the OTP to the user's mobile.
+            // This is just a simulation.
+            console.log(`Sending OTP ${otp} to mobile: ${mobile}`);
+        }
+
+        function verifyOTP() {
+            const enteredOTP = document.getElementById('otp-input').value;
+            const storedOTP = localStorage.getItem('otp');
+
+            if (enteredOTP === storedOTP) {
+                alert('OTP verified! You can now log in.');
+                window.location.href = 'login.html'; // Redirect to login page
+            } else {
+                alert('Invalid OTP. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
